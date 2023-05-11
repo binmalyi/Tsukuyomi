@@ -1,0 +1,7 @@
+node_modules
+JS
+Assets
+.env
+TS/Slashies/Games
+TS/Slashies/Test
+test.mjs
