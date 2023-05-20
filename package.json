@@ -4,10 +4,9 @@
     "dotenv": "^16.0.3",
     "fast-glob": "^3.2.12",
     "sharp": "^0.32.1",
-    "surrealdb.js": "^0.6.0",
-    "xlsx": "^0.18.5"
+    "surrealdb.js": "^0.6.0"
   },
   "scripts": {
-    "start": "tsc -b TS && node JS/index.mjs"
+    "start": "IF EXIST JS rmdir JS /s/q && tsc -b TS && node JS/index.mjs"
   }
 }

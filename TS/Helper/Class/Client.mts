@@ -1,5 +1,4 @@
 import { parse } from 'path';
-import { inspect } from 'util';
 import FastGlob from 'fast-glob';
 import { pathToFileURL } from 'url';
 import { Surreal } from 'surrealdb.js';
@@ -14,7 +13,7 @@ export interface Options { base: string, folders: Array<string> };
 
 (await import('dotenv')).config();
 
-export class Zelda extends Client {
+export class Tsukuyomi extends Client {
     db: Surreal;
     prefix: Map<string, Prefix>;
     slash: Map<string, Slash>;
@@ -29,14 +28,13 @@ export class Zelda extends Client {
 
     init({base, folders}: Options){
         if (!Array.isArray(folders) || folders.every(folder => typeof folder !== 'string')) throw TypeError('Expected an array of strings');
-
         const fileNames: Array<ReturnType<typeof parse>> = [];
 
         Promise.all<Event|Prefix|Slash>(
             FastGlob.sync(`(${folders.join('|')})/**/*.{js,cjs,mjs}`, {cwd: base, absolute: true})
             .map(path => (fileNames.push(parse(pathToFileURL(path).href)), import(pathToFileURL(path).href)))
         )
-        .then(exports => {
+        .then(async exports => {
             for (const index in exports){
                 const _export = exports[index];
 
@@ -45,8 +43,7 @@ export class Zelda extends Client {
                 else if ('data' in _export) this.slash.set(_export.data.name, _export);
                 else throw new ReadError(_export, fileNames[index]);
             };
-
-            this.login();
+            await this.login();
         });
     };
 };

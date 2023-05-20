@@ -1,8 +1,6 @@
-node_modules
-JS
-Assets
-.env
-TS/Slashies/Games
-TS/Slashies/Test
-test.mjs
-TS/Helper/Class/Uno.mts
+/*
+!TS/*
+!TS/Slashies/Games
+!TS/Helper/Class/Uno.mts
+!README.md
+!**/package
