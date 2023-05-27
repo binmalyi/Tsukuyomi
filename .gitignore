@@ -1,6 +1,3 @@
 /*
-!TS/*
-!TS/Slashies/Games
-!TS/Helper/Class/Uno.mts
-!README.md
-!**/package
+!TS
+!/*.{json,md}

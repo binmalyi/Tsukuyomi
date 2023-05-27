@@ -7,6 +7,6 @@
     "surrealdb.js": "^0.6.0"
   },
   "scripts": {
-    "start": "IF EXIST JS rmdir JS /s/q && tsc -b TS && node JS/index.mjs"
+    "start": "(IF EXIST JS rmdir JS /s /q) && tsc -b TS && node JS/index.mjs"
   }
 }
