@@ -1,3 +1,5 @@
 /*
-!TS
-!/*.{json,md}
+!src
+!*.yaml
+!tsconfig.json
+!README.md

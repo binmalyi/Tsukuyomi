@@ -1,12 +1,11 @@
 {
-  "dependencies": {
-    "discord.js": "^14.9.0",
-    "dotenv": "^16.0.3",
-    "fast-glob": "^3.2.12",
-    "sharp": "^0.32.1",
-    "surrealdb.js": "^0.6.0"
-  },
-  "scripts": {
-    "start": "(IF EXIST JS rmdir JS /s /q) && tsc -b TS && node JS/index.mjs"
-  }
+	"dependencies": {
+		"discord.js": "^14.13.0",
+		"dotenv": "^16.3.1",
+		"fast-glob": "^3.3.1",
+		"surrealdb.js": "^0.8.4"
+	},
+	"scripts": {
+		"start": "(IF EXIST prod rmdir prod /s /q) && tsc && node prod/index.mjs"
+	}
 }
