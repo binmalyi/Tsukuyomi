@@ -1,5 +1,25 @@
 ## __Guide__
-To compile and run, simply enter and run:
-```js
-npm start
+-----------------------------------------------------------
+Clone the repository:
 ```
+git clone https://github.com/binmalyi/Tsukuyomi.git
+```
+
+Install dependencies:
+```cmd
+pnpm i
+```
+
+Create a `.env` file in the root of the folder and then add:
+```
+DISCORD_TOKEN = <Your Bot Token>
+```
+Replace <Your Bot Token> with the actual token.<br>
+There is no need to add string quotes as all data in the `.env` files are all strings
+
+Start the bot:
+```cmd
+pnpm start
+```
+
+https://media1.tenor.com/m/JSjR9nQGp50AAAAC/itachi-sharingan.gif
