@@ -21,4 +21,4 @@ Start the bot:
 pnpm start
 ```
 
-https://c.tenor.com/K9UgdW1KxFoAAAAC/tenor.gif
+<img src="https://c.tenor.com/K9UgdW1KxFoAAAAC/tenor.gif"/>
