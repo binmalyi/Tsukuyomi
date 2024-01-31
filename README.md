@@ -1,5 +1,4 @@
 ## __Guide__
------------------------------------------------------------
 Clone the repository:
 ```
 git clone https://github.com/binmalyi/Tsukuyomi.git
