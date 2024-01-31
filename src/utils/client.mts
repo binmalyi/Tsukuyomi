@@ -20,7 +20,7 @@ interface Event extends Module { event: (keyof ClientEvents) | (keyof RestEvents
 interface Slash extends Module { data: SlashCommands };
 interface Prefix extends Module { name: string };
 interface Options extends ClientOptions {
-    dir: string,
+    dir?: string,
     folders: Array<string>
 }
 
