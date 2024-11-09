@@ -18,8 +18,14 @@ type Event = keyof ClientEvents | keyof RestEvents;
 // type Slash = ApplicationCommandData | SlashCommandBuilder;
 type callback = (...params: Array<(ClientEvents[keyof ClientEvents] | RestEvents[keyof RestEvents])[number]>) => void | Promise<void>;
 
+/**
+ * @description List of all discord events (REST & Gateway)
+ */
 const events = new Array<Event>().concat(Object.values(Events) as Event[], Object.values(RESTEvents));
 
+/**
+ * @description Perform a Glob search for exported modules in "function" directory
+ */
 export async function require(glob: Glob = new Glob("function/*.ts"), opt?: GlobScanOptions){
     if (!(glob instanceof Glob)) throw new Error("Missing Glob Object");
     const paths = await Array.fromAsync(glob.scan(opt ? opt : {absolute: true, cwd: "src"}));
@@ -27,6 +33,9 @@ export async function require(glob: Glob = new Glob("function/*.ts"), opt?: Glob
     return !paths.length ? paths as [] : Promise.all<unknown>(paths.map(path => import(path)));
 };
 
+/**
+ * @description Custom class to incorporate registration of events and modification of application commands (if needed)
+ */
 export class Tsukuyomi extends Client {
     public store: Map<string, callback> = new Map();
 
@@ -65,6 +74,7 @@ export class Tsukuyomi extends Client {
         if (!modules.length) Promise.reject("No modules have been exported");
 
         for (const {default: fn} of modules){
+            // default export would in the format <filename_default> hence why we are splitting by '_' char and getting the file name from the first index of the array
             const name = fn.name.split('_')[0]!;
             (
                 !events.includes(name as Event)

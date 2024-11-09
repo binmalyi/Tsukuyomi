@@ -1,3 +1,6 @@
+/**
+ * @description Serialize complex data (JSON#stringify)
+ */
 function toJSON(data: unknown): string {
     if (typeof data === "string") return data.length > 1 ? '"'+data+'"' : "'"+data+"'";
     else if (
@@ -14,6 +17,9 @@ function toJSON(data: unknown): string {
     else return '{'+Reflect.ownKeys(data).map(key => toJSON(key)+':'+toJSON(data[key as keyof typeof data]))+'}';
 };
 
+/**
+ * @description Deserialize complex data (JSON#parse)
+ */
 function fromJSON(data: string): unknown {
     if (typeof data !== "string") throw new Error(`Expected a string but received ${typeof data}`);
     else if (data.includes("eval")) throw new Error("Eval script detected");
