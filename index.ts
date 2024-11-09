@@ -1,0 +1,1 @@
+new (await import("./src/client")).Tsukuyomi();

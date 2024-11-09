@@ -1,11 +1,14 @@
 {
-	"dependencies": {
-		"discord.js": "^14.13.0",
-		"dotenv": "^16.3.1",
-		"fast-glob": "^3.3.1",
-		"surrealdb.js": "^0.8.4"
-	},
-	"scripts": {
-		"start": "(IF EXIST prod rmdir prod /s /q) && tsc && node prod/index.mjs"
-	}
+  "name": "tsukuyomi",
+  "module": "index.mts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3"
+  }
 }
